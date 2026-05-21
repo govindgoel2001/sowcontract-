@@ -1,7 +1,7 @@
 # Project Proposal — Pilot Phase
 
 **Prepared for:** Expressmats — Mr Kasim Mubarik (+44 7548 740783)
-**Prepared by:** Meteorify — Govind Goel, CEO (+91 9560397569)
+**Prepared by:** MyHermes — Govind Goel, CEO (+91 9560397569)
 **Date:** 21 May 2026
 **Valid until:** 11 June 2026
 **Proposal reference:** PROP-2026-001
@@ -73,19 +73,19 @@ images or 200.
 | Per product — 10 or more images | $7 per product |
 | Full website build *(optional)* | Quoted on request |
 
-**All AI API calls and image-generation costs are borne by Meteorify and are
+**All AI API calls and image-generation costs are borne by MyHermes and are
 already included in the per-product price.** You pay a single flat rate per
 product, with no separate tooling or usage bill.
 
 **Pricing model:** Per-product, pilot rate.
 
-Fees are exclusive of applicable taxes. Meteorify is currently not registered
+Fees are exclusive of applicable taxes. MyHermes is currently not registered
 under GST; should registration become applicable, GST will be added to
 subsequent invoices as required by law.
 
-## 7. Why Meteorify
+## 7. Why MyHermes
 
-Meteorify builds AI automation systems. For this pilot we carry the tooling
+MyHermes builds AI automation systems. For this pilot we carry the tooling
 and API cost ourselves, so you pay one predictable per-product rate and can
 evaluate the result on real products with no setup and no technical lift on
 your side.
@@ -138,7 +138,7 @@ charge**.
 2. Share the reference site(s) and product access.
 3. We generate and deliver the images and writeups; you review.
 
-To proceed, contact **Govind Goel** at **+91 9560397569** / **[EMAIL]**.
+To proceed, contact **Govind Goel** at **+91 9560397569** / **hello@myhermes.cloud**.
 
 ---
 
@@ -146,4 +146,4 @@ To proceed, contact **Govind Goel** at **+91 9560397569** / **[EMAIL]**.
 binding terms will be set out in a separate Service Agreement and Scope of
 Work.*
 
-*Meteorify — [WEBSITE]*
+*MyHermes — www.myhermes.cloud*

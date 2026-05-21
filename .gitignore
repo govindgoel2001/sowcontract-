@@ -1,0 +1,6 @@
+# Generated PDFs
+output/*.pdf
+
+# OS / editor noise
+.DS_Store
+*.swp

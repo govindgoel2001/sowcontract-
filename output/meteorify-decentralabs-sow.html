@@ -6,310 +6,256 @@
 <title>Meteorify × DecentraLabs — Statement of Work</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,400&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,400..500&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#0c0d10;
-    --bg-soft:#121419;
-    --panel:#14161c;
-    --panel-2:#171a21;
-    --line:#262a33;
-    --line-soft:#1d212a;
-    --ink:#ece7df;
-    --ink-soft:#b6b3ac;
-    --ink-dim:#7e8088;
-    --accent:#e7a45c;
-    --accent-soft:#caa06a;
-    --accent-glow:rgba(231,164,92,.16);
-    --good:#7fb38a;
+    --bg:#f6f3ec;
+    --paper:#fffdf9;
+    --panel:#ffffff;
+    --tint:#faf6ee;
+    --line:#e7e0d2;
+    --line-soft:#efe9dd;
+    --ink:#1c1d22;
+    --ink-soft:#54565f;
+    --ink-dim:#8b8d96;
+    --accent:#cf7a32;
+    --accent-2:#e89a4e;
+    --accent-deep:#a85f22;
+    --accent-wash:#fbeedd;
+    --good:#3f7d54;
+    --sky:#3a4a63;
   }
 
   *{box-sizing:border-box;margin:0;padding:0;}
-
   html{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
 
   body{
     background:var(--bg);
     color:var(--ink);
     font-family:"Hanken Grotesk", ui-sans-serif, system-ui, sans-serif;
-    font-weight:400;
     font-size:16px;
-    line-height:1.65;
-    letter-spacing:.005em;
+    line-height:1.66;
+    letter-spacing:.004em;
     -webkit-font-smoothing:antialiased;
   }
 
-  .wrap{
-    max-width:860px;
+  .sheet{
+    max-width:900px;
     margin:0 auto;
-    padding:0 40px 120px;
+    background:var(--paper);
+    box-shadow:0 1px 0 rgba(0,0,0,.02), 0 40px 90px -50px rgba(60,40,10,.35);
   }
+  .pad{ padding:0 56px; }
 
-  /* ---------- type ---------- */
-  h1,h2,h3{ font-family:"Fraunces", Georgia, serif; font-weight:400; letter-spacing:-.01em; line-height:1.1; }
-  .serif{ font-family:"Fraunces", Georgia, serif; }
-
-  .eyebrow{
-    font-size:12px;
-    font-weight:600;
-    letter-spacing:.22em;
-    text-transform:uppercase;
-    color:var(--accent-soft);
-  }
-
+  /* ---- type ---- */
+  h1,h2,h3{ font-family:"Fraunces", Georgia, serif; font-weight:400; letter-spacing:-.012em; line-height:1.1; color:var(--ink); }
+  .eyebrow{ font-size:12px; font-weight:600; letter-spacing:.22em; text-transform:uppercase; color:var(--accent-deep); }
   p{ color:var(--ink-soft); margin-bottom:14px; }
   strong{ color:var(--ink); font-weight:600; }
-  a{ color:var(--accent); text-decoration:none; border-bottom:1px solid rgba(231,164,92,.35); }
+  a{ color:var(--accent-deep); text-decoration:none; border-bottom:1px solid rgba(207,122,50,.35); }
 
-  /* ---------- cover ---------- */
+  /* ---------- COVER ---------- */
   .cover{
     position:relative;
-    padding:84px 40px 70px;
-    max-width:940px;
-    margin:0 auto;
     overflow:hidden;
-  }
-  .cover::before{
-    content:"";
-    position:absolute;
-    top:-220px; right:-160px;
-    width:560px; height:560px;
-    background:radial-gradient(circle at center, var(--accent-glow), transparent 62%);
-    pointer-events:none;
-  }
-  .meteor{
-    position:absolute;
-    top:60px; right:40px;
-    width:300px; height:2px;
-    background:linear-gradient(90deg, transparent, var(--accent));
-    transform:rotate(28deg);
-    transform-origin:right center;
-    opacity:.5;
-  }
-  .meteor::after{
-    content:"";
-    position:absolute; right:-3px; top:-2px;
-    width:6px;height:6px;border-radius:50%;
-    background:var(--accent);
-    box-shadow:0 0 12px 2px var(--accent);
-  }
-
-  .brandrow{ display:flex; align-items:center; gap:12px; position:relative; z-index:2; }
-  .brandmark{
-    width:30px;height:30px;border-radius:8px;
-    background:linear-gradient(150deg,var(--accent),#b9742f);
-    position:relative;
-    box-shadow:0 0 22px var(--accent-glow);
-  }
-  .brandmark::after{
-    content:"";position:absolute;inset:0;border-radius:8px;
-    background:radial-gradient(circle at 32% 30%, rgba(255,255,255,.55), transparent 45%);
-  }
-  .brandname{ font-size:19px; font-weight:600; letter-spacing:.01em; }
-  .brandname span{ color:var(--ink-dim); font-weight:400; }
-
-  .cover h1{
-    font-size:62px;
-    margin:46px 0 14px;
-    letter-spacing:-.02em;
-    position:relative; z-index:2;
-  }
-  .cover h1 em{ font-style:italic; color:var(--accent-soft); }
-  .pairing{ font-size:18px; color:var(--ink); margin-bottom:6px; position:relative; z-index:2; }
-  .pairing b{ font-weight:600; }
-  .phase-tag{
-    display:inline-block;
-    margin-top:30px;
-    padding:7px 16px;
-    border:1px solid var(--line);
-    border-radius:999px;
-    font-size:13px;
-    letter-spacing:.08em;
-    text-transform:uppercase;
-    color:var(--ink-soft);
-    position:relative; z-index:2;
-  }
-  .phase-tag b{ color:var(--accent-soft); font-weight:600; }
-
-  .meta-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:18px;
-    margin-top:48px;
-    padding-top:26px;
-    border-top:1px solid var(--line-soft);
-    position:relative; z-index:2;
-  }
-  .meta-grid div span{ display:block; font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-dim); margin-bottom:5px; }
-  .meta-grid div p{ margin:0; color:var(--ink); font-size:14px; }
-
-  /* ---------- logo strip ---------- */
-  .clients{
-    max-width:940px; margin:0 auto; padding:30px 40px 8px;
-  }
-  .clients .label{ text-align:center; font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--ink-dim); margin-bottom:24px; }
-  .logos{
-    display:flex; justify-content:center; align-items:center; gap:0;
-    flex-wrap:wrap;
-    border-top:1px solid var(--line-soft);
+    padding:72px 56px 60px;
+    background:
+      radial-gradient(120% 90% at 88% 8%, var(--accent-wash) 0%, rgba(251,238,221,0) 46%),
+      linear-gradient(180deg,#fffdf9 0%, var(--paper) 100%);
     border-bottom:1px solid var(--line-soft);
   }
-  .logo{
-    flex:1 1 0;
-    min-width:150px;
-    text-align:center;
-    padding:26px 12px;
-    font-family:"Fraunces",serif;
-    font-size:21px;
-    color:var(--ink-soft);
-    opacity:.78;
-    letter-spacing:.01em;
-    border-right:1px solid var(--line-soft);
+  /* meteorite */
+  .sky-svg{ position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:0; }
+  .meteor-fly{ animation:fly 9s ease-in-out infinite; }
+  @keyframes fly{
+    0%   { transform:translate(120px,-80px); opacity:0; }
+    12%  { opacity:1; }
+    55%  { transform:translate(0,0); opacity:1; }
+    80%  { opacity:1; }
+    100% { transform:translate(-40px,26px); opacity:0; }
   }
+  .twinkle{ animation:tw 3.4s ease-in-out infinite; }
+  .twinkle.b{ animation-delay:1.1s; }
+  .twinkle.c{ animation-delay:2.2s; }
+  @keyframes tw{ 0%,100%{opacity:.25;} 50%{opacity:.9;} }
+
+  .cover > *{ position:relative; z-index:1; }
+
+  .brandrow{ display:flex; align-items:center; gap:12px; }
+  .brandmark{ width:30px;height:30px;border-radius:9px;
+    background:linear-gradient(150deg,var(--accent-2),var(--accent-deep));
+    position:relative; box-shadow:0 6px 18px -8px var(--accent); }
+  .brandmark::after{ content:""; position:absolute; inset:0; border-radius:9px;
+    background:radial-gradient(circle at 32% 28%, rgba(255,255,255,.7), transparent 46%); }
+  .brandname{ font-size:19px; font-weight:600; }
+  .brandname span{ color:var(--ink-dim); font-weight:400; }
+
+  .cover h1{ font-size:64px; margin:54px 0 16px; letter-spacing:-.022em; }
+  .cover h1 em{ font-style:italic; color:var(--accent-deep); }
+  .pairing{ font-size:18px; color:var(--ink); margin-bottom:4px; }
+  .pairing b{ font-weight:600; }
+  .phase-tag{ display:inline-block; margin-top:28px; padding:7px 16px; background:var(--paper);
+    border:1px solid var(--line); border-radius:999px; font-size:13px; letter-spacing:.06em;
+    text-transform:uppercase; color:var(--ink-soft); box-shadow:0 1px 0 rgba(0,0,0,.02); }
+  .phase-tag b{ color:var(--accent-deep); font-weight:600; }
+
+  .meta-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:18px; margin-top:52px;
+    padding-top:24px; border-top:1px solid var(--line-soft); }
+  .meta-grid span{ display:block; font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-dim); margin-bottom:5px; }
+  .meta-grid p{ margin:0; color:var(--ink); font-size:14px; font-weight:500; }
+
+  /* ---------- client strip ---------- */
+  .clients{ padding:30px 56px 6px; }
+  .clients .label{ text-align:center; font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--ink-dim); margin-bottom:22px; }
+  .logos{ display:flex; justify-content:center; align-items:stretch; border-top:1px solid var(--line-soft); border-bottom:1px solid var(--line-soft); }
+  .logo{ flex:1 1 0; min-width:140px; text-align:center; padding:26px 12px;
+    font-family:"Fraunces",serif; font-size:21px; color:var(--ink); opacity:.82;
+    border-right:1px solid var(--line-soft); }
   .logo:last-child{ border-right:none; }
-  .logo small{ display:block; font-family:"Hanken Grotesk",sans-serif; font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:var(--ink-dim); margin-top:4px; opacity:.8; }
 
   /* ---------- sections ---------- */
-  section{ margin-top:64px; }
-  .sec-head{ display:flex; align-items:baseline; gap:16px; margin-bottom:22px; }
-  .sec-num{
-    font-family:"Fraunces",serif; font-size:15px; color:var(--accent-soft);
-    border:1px solid var(--line); border-radius:7px; padding:3px 9px; flex:none;
-  }
-  h2{ font-size:30px; }
-  .lead{ font-size:18px; color:var(--ink); line-height:1.6; }
+  section{ margin-top:60px; }
+  .pad section:first-child{ margin-top:56px; }
+  .sec-head{ display:flex; align-items:baseline; gap:16px; margin-bottom:20px; }
+  .sec-num{ font-family:"Fraunces",serif; font-size:15px; color:var(--accent-deep);
+    border:1px solid var(--line); border-radius:7px; padding:3px 9px; flex:none; background:var(--tint); }
+  h2{ font-size:31px; }
+  .lead{ font-size:18.5px; color:var(--ink); line-height:1.55; }
 
   /* deliverable cards */
-  .deliv{
-    background:var(--panel);
-    border:1px solid var(--line-soft);
-    border-radius:14px;
-    padding:24px 26px;
-    margin-bottom:16px;
-  }
+  .deliv{ background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:24px 26px; margin-bottom:16px;
+    box-shadow:0 1px 0 rgba(0,0,0,.02); }
   .deliv h3{ font-size:21px; margin-bottom:6px; }
-  .deliv h3 .d-id{ color:var(--accent-soft); font-size:15px; margin-right:10px; }
+  .deliv h3 .d-id{ color:var(--accent-deep); font-size:15px; margin-right:10px; }
   .deliv ul{ list-style:none; margin:14px 0 0; }
   .deliv ul li{ position:relative; padding-left:18px; margin-bottom:7px; color:var(--ink-soft); font-size:15px; }
-  .deliv ul li::before{ content:""; position:absolute; left:0; top:10px; width:5px;height:5px;border-radius:50%; background:var(--accent); opacity:.7; }
-  .accept{
-    margin-top:16px; padding-top:14px; border-top:1px dashed var(--line);
-    display:grid; grid-template-columns:1fr 1fr; gap:14px;
-  }
-  .accept div span{ display:block; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-dim); margin-bottom:4px; }
-  .accept div p{ margin:0; font-size:14px; color:var(--ink); }
+  .deliv ul li::before{ content:""; position:absolute; left:0; top:9px; width:6px;height:6px;border-radius:50%; background:var(--accent); }
+  .accept{ margin-top:16px; padding-top:14px; border-top:1px dashed var(--line);
+    display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  .accept span{ display:block; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-dim); margin-bottom:4px; }
+  .accept p{ margin:0; font-size:14px; color:var(--ink); }
 
   /* generic list */
   .blocklist{ list-style:none; }
   .blocklist li{ position:relative; padding:14px 0 14px 24px; border-bottom:1px solid var(--line-soft); color:var(--ink-soft); }
   .blocklist li:last-child{ border-bottom:none; }
-  .blocklist li::before{ content:""; position:absolute; left:0; top:21px; width:7px;height:1px; background:var(--accent); }
+  .blocklist li::before{ content:""; position:absolute; left:0; top:21px; width:8px;height:1.5px; background:var(--accent); }
   .blocklist li strong{ color:var(--ink); }
-
   .excl li::before{ background:var(--ink-dim); }
 
+  /* figure */
+  figure{ margin:8px 0 6px; border:1px solid var(--line); border-radius:16px; overflow:hidden; background:var(--paper); }
+  figure svg{ display:block; width:100%; height:auto; }
+  figcaption{ font-size:12.5px; color:var(--ink-dim); padding:12px 18px; border-top:1px solid var(--line-soft); background:var(--tint); }
+  figcaption b{ color:var(--ink-soft); }
+
   /* timeline */
-  .timeline{ position:relative; margin-top:10px; }
-  .day{
-    display:grid; grid-template-columns:90px 1fr; gap:24px;
-    padding:22px 0;
-    border-top:1px solid var(--line-soft);
-  }
+  .day{ display:grid; grid-template-columns:90px 1fr; gap:24px; padding:22px 0; border-top:1px solid var(--line-soft); }
   .day:first-child{ border-top:none; }
-  .day .d-label{ }
-  .day .d-label .d-big{ font-family:"Fraunces",serif; font-size:30px; color:var(--ink); display:block; line-height:1; }
-  .day .d-label .d-small{ font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--accent-soft); }
+  .day .d-big{ font-family:"Fraunces",serif; font-size:30px; color:var(--ink); display:block; line-height:1; }
+  .day .d-small{ font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--accent-deep); }
   .day .d-body h3{ font-size:18px; margin-bottom:6px; }
   .day .d-body p{ margin:0; font-size:14.5px; }
 
   /* tables */
   table{ width:100%; border-collapse:collapse; margin-top:6px; font-size:14.5px; }
-  th{ text-align:left; font-family:"Hanken Grotesk",sans-serif; font-weight:600; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-dim); padding:12px 14px; border-bottom:1px solid var(--line); }
+  th{ text-align:left; font-weight:600; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-dim); padding:12px 14px; border-bottom:1px solid var(--line); }
   td{ padding:14px; border-bottom:1px solid var(--line-soft); color:var(--ink-soft); vertical-align:top; }
   td strong{ color:var(--ink); }
   .total-row td{ border-bottom:none; border-top:1px solid var(--line); color:var(--ink); font-weight:600; }
   .amt{ text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap; color:var(--ink); }
 
-  .pricebar{
-    display:flex; gap:18px; margin-top:24px; flex-wrap:wrap;
-  }
-  .pricecard{
-    flex:1 1 220px;
-    background:var(--panel);
-    border:1px solid var(--line-soft);
-    border-radius:14px;
-    padding:24px;
-  }
-  .pricecard.feature{ border-color:rgba(231,164,92,.4); background:linear-gradient(180deg,rgba(231,164,92,.06),var(--panel)); }
+  .pricebar{ display:flex; gap:18px; margin-top:24px; flex-wrap:wrap; }
+  .pricecard{ flex:1 1 220px; background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:24px; }
+  .pricecard.feature{ border-color:var(--accent-2); background:linear-gradient(180deg,var(--accent-wash),var(--panel)); }
   .pricecard .pc-eye{ font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-dim); }
-  .pricecard .pc-amt{ font-family:"Fraunces",serif; font-size:40px; color:var(--ink); margin:8px 0 2px; }
-  .pricecard.feature .pc-amt{ color:var(--accent); }
+  .pricecard .pc-amt{ font-family:"Fraunces",serif; font-size:42px; color:var(--ink); margin:8px 0 2px; }
+  .pricecard.feature .pc-amt{ color:var(--accent-deep); }
   .pricecard .pc-sub{ font-size:13.5px; color:var(--ink-soft); }
 
-  .note{
-    margin-top:22px; padding:18px 20px;
-    background:var(--bg-soft); border:1px solid var(--line-soft);
-    border-left:2px solid var(--accent);
-    border-radius:0 10px 10px 0;
-    font-size:14px; color:var(--ink-soft);
-  }
+  .note{ margin-top:22px; padding:18px 20px; background:var(--tint); border:1px solid var(--line-soft);
+    border-left:3px solid var(--accent); border-radius:0 10px 10px 0; font-size:14px; color:var(--ink-soft); }
 
   /* founders */
   .founders{ display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:6px; }
-  .founder{
-    background:var(--panel); border:1px solid var(--line-soft); border-radius:14px; padding:24px;
-    display:flex; gap:16px; align-items:flex-start;
-  }
-  .avatar{
-    width:52px;height:52px;border-radius:12px; flex:none;
-    display:flex;align-items:center;justify-content:center;
-    font-family:"Fraunces",serif; font-size:22px; color:#0c0d10;
-    background:linear-gradient(150deg,var(--accent),#b9742f);
-  }
-  .founder .f-name{ font-family:"Fraunces",serif; font-size:20px; color:var(--ink); }
-  .founder .f-role{ font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--accent-soft); margin-bottom:8px; }
+  .founder{ background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:24px; display:flex; gap:16px; align-items:flex-start; }
+  .avatar{ width:52px;height:52px;border-radius:13px; flex:none; display:flex;align-items:center;justify-content:center;
+    font-family:"Fraunces",serif; font-size:22px; color:#fff; background:linear-gradient(150deg,var(--accent-2),var(--accent-deep)); }
+  .founder .f-name{ font-family:"Fraunces",serif; font-size:20px; }
+  .founder .f-role{ font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--accent-deep); margin-bottom:8px; }
   .founder p{ font-size:13.5px; margin:0 0 8px; }
   .founder a{ font-size:13px; }
 
   /* signoff */
   .sign{ display:grid; grid-template-columns:1fr 1fr; gap:30px; margin-top:14px; }
-  .sign .col span{ font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-dim); }
-  .sign .col .who{ font-family:"Fraunces",serif; font-size:18px; color:var(--ink); margin:4px 0 2px; }
-  .sign .col .role{ font-size:13px; color:var(--ink-soft); margin-bottom:46px; }
-  .sign .line{ border-top:1px solid var(--line); padding-top:8px; font-size:12px; color:var(--ink-dim); }
+  .sign span{ font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-dim); }
+  .sign .who{ font-family:"Fraunces",serif; font-size:18px; margin:4px 0 2px; }
+  .sign .role{ font-size:13px; color:var(--ink-soft); margin-bottom:46px; }
+  .sign .line{ border-top:1px solid var(--ink); padding-top:8px; font-size:12px; color:var(--ink-dim); }
 
-  footer{
-    max-width:940px; margin:80px auto 0; padding:30px 40px 0;
-    border-top:1px solid var(--line-soft);
-    display:flex; justify-content:space-between; align-items:center;
-    font-size:13px; color:var(--ink-dim); flex-wrap:wrap; gap:10px;
-  }
+  footer{ margin-top:72px; padding:28px 56px 40px; border-top:1px solid var(--line-soft);
+    display:flex; justify-content:space-between; align-items:center; font-size:13px; color:var(--ink-dim); flex-wrap:wrap; gap:10px; }
 
   @media (max-width:680px){
-    .wrap,.cover,.clients{ padding-left:22px; padding-right:22px; }
-    .cover h1{ font-size:42px; }
+    .pad,.cover,.clients,footer{ padding-left:24px; padding-right:24px; }
+    .cover h1{ font-size:44px; }
     .meta-grid{ grid-template-columns:repeat(2,1fr); }
     .founders,.sign,.accept{ grid-template-columns:1fr; }
-    .day{ grid-template-columns:1fr; gap:10px; }
-    .meteor{ display:none; }
+    .day{ grid-template-columns:1fr; gap:8px; }
   }
-
   @media print{
-    body{ background:var(--bg); font-size:11.5pt; }
-    .wrap{ padding-bottom:0; }
-    section{ margin-top:34px; page-break-inside:avoid; }
-    .deliv,.founder,.pricecard,.day{ page-break-inside:avoid; }
-    .cover{ padding-top:40px; }
+    body{ background:#fff; font-size:11.5pt; }
+    .sheet{ box-shadow:none; max-width:none; }
+    .meteor-fly,.twinkle{ animation:none !important; }
+    .meteor-fly{ transform:none !important; opacity:1 !important; }
+    section{ margin-top:32px; page-break-inside:avoid; }
+    .deliv,.founder,.pricecard,.day,figure{ page-break-inside:avoid; }
     a{ border-bottom:none; }
-    @page{ margin:14mm; }
+    @page{ margin:13mm; }
   }
 </style>
 </head>
 <body>
+<div class="sheet">
 
-  <!-- COVER -->
+  <!-- ============ COVER ============ -->
   <header class="cover">
-    <div class="meteor"></div>
+    <svg class="sky-svg" viewBox="0 0 900 460" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <defs>
+        <linearGradient id="trail" x1="1" y1="0" x2="0" y2="1">
+          <stop offset="0%"  stop-color="#cf7a32" stop-opacity="0.9"/>
+          <stop offset="40%" stop-color="#e89a4e" stop-opacity="0.45"/>
+          <stop offset="100%" stop-color="#e89a4e" stop-opacity="0"/>
+        </linearGradient>
+        <radialGradient id="head" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#fff7ec"/>
+          <stop offset="45%" stop-color="#f0a857"/>
+          <stop offset="100%" stop-color="#cf7a32"/>
+        </radialGradient>
+        <radialGradient id="halo" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#e89a4e" stop-opacity="0.5"/>
+          <stop offset="100%" stop-color="#e89a4e" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+
+      <!-- faint stars -->
+      <circle class="twinkle"   cx="120" cy="70"  r="1.6" fill="#cf7a32"/>
+      <circle class="twinkle b" cx="300" cy="40"  r="1.2" fill="#b9905a"/>
+      <circle class="twinkle c" cx="520" cy="96"  r="1.4" fill="#cf7a32"/>
+      <circle class="twinkle b" cx="760" cy="60"  r="1.2" fill="#b9905a"/>
+      <circle class="twinkle"   cx="660" cy="150" r="1.3" fill="#cf7a32"/>
+      <circle class="twinkle c" cx="840" cy="200" r="1.5" fill="#cf7a32"/>
+
+      <!-- the meteorite -->
+      <g class="meteor-fly">
+        <path d="M 770 60 L 560 250" stroke="url(#trail)" stroke-width="9" stroke-linecap="round" opacity="0.55"/>
+        <path d="M 778 66 L 600 226" stroke="url(#trail)" stroke-width="3" stroke-linecap="round" opacity="0.8"/>
+        <circle cx="770" cy="60" r="34" fill="url(#halo)"/>
+        <circle cx="770" cy="60" r="11" fill="url(#head)"/>
+        <circle cx="766" cy="56" r="3.4" fill="#fff8ee"/>
+      </g>
+    </svg>
+
     <div class="brandrow">
       <div class="brandmark"></div>
       <div class="brandname">Meteorify<span> · Studio</span></div>
@@ -327,7 +273,7 @@
     </div>
   </header>
 
-  <!-- CLIENT STRIP -->
+  <!-- ============ CLIENT STRIP ============ -->
   <div class="clients">
     <p class="label">Teams who have shipped with us</p>
     <div class="logos">
@@ -338,13 +284,13 @@
     </div>
   </div>
 
-  <div class="wrap">
+  <div class="pad">
 
     <!-- 1. OBJECTIVE -->
     <section>
       <div class="sec-head"><span class="sec-num">01</span><h2>The objective</h2></div>
       <p class="lead">Give DecentraLabs one secure sales command centre that replaces the
-      patchwork of CRMs and spreadsheets, and have it live within four working days.</p>
+      patchwork of CRMs and spreadsheets, live within four working days.</p>
       <p>Phase 1 is the sales engine, the part of the business currently holding back
       revenue. By the end of the build, the team logs in to a single place where every
       lead, call, message, payment and KPI lives together, with ad leads flowing in on
@@ -352,17 +298,198 @@
       later; only Phase 1 is in scope here.</p>
     </section>
 
-    <!-- 2. DELIVERABLES -->
+    <!-- 2. HOW IT BEHAVES -->
     <section>
-      <div class="sec-head"><span class="sec-num">02</span><h2>What we deliver</h2></div>
-      <p>Each item below states what it is, how you confirm it is done, and how many
-      rounds of changes are included.</p>
+      <div class="sec-head"><span class="sec-num">02</span><h2>How the CRM behaves</h2></div>
+      <p>A lead arrives, lands on the board, gets worked through calls and messages, turns
+      into a tracked deal, and feeds the leaderboard. One continuous flow, no re-keying.</p>
+
+      <figure>
+        <svg viewBox="0 0 900 430" role="img" aria-label="Sales CRM behaviour flow">
+          <defs>
+            <marker id="arr" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+              <path d="M0,0 L9,4.5 L0,9 Z" fill="#cf7a32"/>
+            </marker>
+          </defs>
+          <style>
+            .lbl{ font-family:"Hanken Grotesk",sans-serif; fill:#1c1d22; }
+            .sub{ font-family:"Hanken Grotesk",sans-serif; fill:#8b8d96; font-size:11px; }
+            .stage{ font-family:"Hanken Grotesk",sans-serif; font-size:12px; font-weight:600; letter-spacing:.04em; }
+            .flow{ stroke:#cf7a32; stroke-width:2; fill:none; }
+          </style>
+
+          <!-- inbound -->
+          <rect x="24" y="28" width="190" height="64" rx="11" fill="#fbeedd" stroke="#e7d9c2"/>
+          <text class="lbl" x="40" y="56" font-size="14" font-weight="600">Lead comes in</text>
+          <text class="sub" x="40" y="76">Meta Ads · CSV · manual</text>
+          <line class="flow" x1="214" y1="60" x2="248" y2="60" marker-end="url(#arr)"/>
+
+          <!-- pipeline board -->
+          <text class="stage" x="258" y="24" fill="#a85f22">PIPELINE BOARD</text>
+          <!-- five columns -->
+          <g>
+            <!-- col template -->
+            <rect x="258" y="34" width="120" height="150" rx="10" fill="#fffdf9" stroke="#e7e0d2"/>
+            <text class="stage" x="270" y="55" fill="#1c1d22">New</text>
+            <rect x="270" y="64" width="96" height="40" rx="7" fill="#faf6ee" stroke="#efe9dd"/>
+            <rect x="278" y="74" width="40" height="6" rx="3" fill="#cf7a32"/>
+            <rect x="278" y="86" width="68" height="5" rx="2.5" fill="#d8d2c5"/>
+            <rect x="270" y="112" width="96" height="40" rx="7" fill="#faf6ee" stroke="#efe9dd"/>
+            <rect x="278" y="122" width="34" height="6" rx="3" fill="#cf7a32"/>
+            <rect x="278" y="134" width="68" height="5" rx="2.5" fill="#d8d2c5"/>
+
+            <rect x="386" y="34" width="120" height="150" rx="10" fill="#fffdf9" stroke="#e7e0d2"/>
+            <text class="stage" x="398" y="55">Contacted</text>
+            <rect x="398" y="64" width="96" height="40" rx="7" fill="#faf6ee" stroke="#efe9dd"/>
+            <rect x="406" y="74" width="44" height="6" rx="3" fill="#cf7a32"/>
+            <rect x="406" y="86" width="68" height="5" rx="2.5" fill="#d8d2c5"/>
+
+            <rect x="514" y="34" width="120" height="150" rx="10" fill="#fffdf9" stroke="#e7e0d2"/>
+            <text class="stage" x="526" y="55">Qualified</text>
+            <rect x="526" y="64" width="96" height="40" rx="7" fill="#faf6ee" stroke="#efe9dd"/>
+            <rect x="534" y="74" width="38" height="6" rx="3" fill="#cf7a32"/>
+            <rect x="534" y="86" width="68" height="5" rx="2.5" fill="#d8d2c5"/>
+
+            <rect x="642" y="34" width="110" height="150" rx="10" fill="#fffdf9" stroke="#e7e0d2"/>
+            <text class="stage" x="654" y="55">Booked</text>
+            <rect x="654" y="64" width="86" height="40" rx="7" fill="#faf6ee" stroke="#efe9dd"/>
+            <rect x="662" y="74" width="40" height="6" rx="3" fill="#cf7a32"/>
+            <rect x="662" y="86" width="58" height="5" rx="2.5" fill="#d8d2c5"/>
+
+            <rect x="760" y="34" width="116" height="150" rx="10" fill="#f0f5f1" stroke="#cfe0d4"/>
+            <text class="stage" x="772" y="55" fill="#3f7d54">Closed</text>
+            <rect x="772" y="64" width="92" height="40" rx="7" fill="#fff" stroke="#dcebe1"/>
+            <rect x="780" y="74" width="44" height="6" rx="3" fill="#3f7d54"/>
+            <rect x="780" y="86" width="64" height="5" rx="2.5" fill="#bcd4c4"/>
+          </g>
+
+          <!-- actions row -->
+          <line class="flow" x1="318" y1="184" x2="318" y2="214" marker-end="url(#arr)"/>
+          <rect x="258" y="222" width="378" height="58" rx="11" fill="#fff" stroke="#e7e0d2"/>
+          <text class="sub" x="276" y="244" font-weight="600" fill="#a85f22" font-size="11" letter-spacing="0.06em">EVERY ACTION LANDS ON THE LEAD</text>
+          <text class="lbl" x="276" y="266" font-size="13">Click-to-call + transcript · WhatsApp · Notes · Split payments</text>
+
+          <!-- to KPIs -->
+          <line class="flow" x1="636" y1="251" x2="700" y2="251" marker-end="url(#arr)"/>
+
+          <!-- KPI / Arena dashboard -->
+          <rect x="708" y="206" width="168" height="150" rx="11" fill="#fbeedd" stroke="#e7d9c2"/>
+          <text class="stage" x="724" y="230" fill="#a85f22">ARENA &amp; KPIs</text>
+          <!-- bars -->
+          <rect x="724" y="246" width="120" height="9" rx="4.5" fill="#efe2cf"/>
+          <rect x="724" y="246" width="104" height="9" rx="4.5" fill="#cf7a32"/>
+          <rect x="724" y="266" width="120" height="9" rx="4.5" fill="#efe2cf"/>
+          <rect x="724" y="266" width="78" height="9" rx="4.5" fill="#cf7a32"/>
+          <rect x="724" y="286" width="120" height="9" rx="4.5" fill="#efe2cf"/>
+          <rect x="724" y="286" width="58" height="9" rx="4.5" fill="#cf7a32"/>
+          <text class="sub" x="724" y="320">Cash collected · close rate</text>
+          <text class="sub" x="724" y="338">per rep, live leaderboard</text>
+
+          <!-- inbound to board curve from left card already drawn; activity feeds board back -->
+          <path class="flow" d="M 447 280 C 447 320, 320 320, 318 300" opacity="0" />
+        </svg>
+        <figcaption><b>Flow:</b> lead in &rarr; pipeline board &rarr; calls, WhatsApp, notes and payments recorded on the lead &rarr; KPIs and the Arena leaderboard update in real time.</figcaption>
+      </figure>
+    </section>
+
+    <!-- 3. ARCHITECTURE -->
+    <section>
+      <div class="sec-head"><span class="sec-num">03</span><h2>How it is built</h2></div>
+      <p>A custom, production stack on your own database and subdomain. Integrations talk
+      to the API directly, so the dialer, WhatsApp and ad leads all live inside one system.</p>
+
+      <figure>
+        <svg viewBox="0 0 900 440" role="img" aria-label="System architecture">
+          <defs>
+            <marker id="arr2" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+              <path d="M0,0 L9,4.5 L0,9 Z" fill="#8b8d96"/>
+            </marker>
+          </defs>
+          <style>
+            .t{ font-family:"Hanken Grotesk",sans-serif; fill:#1c1d22; }
+            .s{ font-family:"Hanken Grotesk",sans-serif; fill:#8b8d96; font-size:11px; }
+            .cap{ font-family:"Hanken Grotesk",sans-serif; font-size:11px; font-weight:600; letter-spacing:.1em; fill:#a85f22; }
+            .wire{ stroke:#bdbcb6; stroke-width:1.6; fill:none; }
+          </style>
+
+          <!-- LEFT: sources -->
+          <text class="cap" x="24" y="34">LEAD SOURCES</text>
+          <rect x="24" y="46"  width="170" height="44" rx="9" fill="#fff" stroke="#e7e0d2"/>
+          <text class="t" x="40" y="73" font-size="13.5">Meta / Facebook Ads</text>
+          <rect x="24" y="98"  width="170" height="44" rx="9" fill="#fff" stroke="#e7e0d2"/>
+          <text class="t" x="40" y="125" font-size="13.5">CSV · GHL / Iron Forge</text>
+          <rect x="24" y="150" width="170" height="44" rx="9" fill="#fff" stroke="#e7e0d2"/>
+          <text class="t" x="40" y="177" font-size="13.5">Manual entry</text>
+
+          <!-- webhook ingest -->
+          <line class="wire" x1="194" y1="68"  x2="236" y2="118" marker-end="url(#arr2)"/>
+          <line class="wire" x1="194" y1="120" x2="236" y2="120" marker-end="url(#arr2)"/>
+          <line class="wire" x1="194" y1="172" x2="236" y2="124" marker-end="url(#arr2)"/>
+          <rect x="240" y="96" width="92" height="48" rx="9" fill="#fbeedd" stroke="#e7d9c2"/>
+          <text class="t" x="256" y="118" font-size="12.5">Webhook</text>
+          <text class="s" x="256" y="134">ingestion</text>
+
+          <!-- CENTER: CRM core -->
+          <rect x="356" y="26" width="278" height="250" rx="14" fill="#faf6ee" stroke="#e7e0d2"/>
+          <text class="cap" x="376" y="52">METEORIFY CRM</text>
+
+          <rect x="376" y="64"  width="238" height="56" rx="10" fill="#fff" stroke="#e7e0d2"/>
+          <text class="t" x="392" y="88" font-size="14" font-weight="600">React front end</text>
+          <text class="s" x="392" y="106">Pipeline, lead cards, dashboards, mobile</text>
+
+          <rect x="376" y="128" width="238" height="56" rx="10" fill="#fff" stroke="#e7e0d2"/>
+          <text class="t" x="392" y="152" font-size="14" font-weight="600">Node.js API</text>
+          <text class="s" x="392" y="170">Business logic · webhooks · KPI engine</text>
+
+          <rect x="376" y="192" width="238" height="56" rx="10" fill="#fff" stroke="#e7e0d2"/>
+          <text class="t" x="392" y="216" font-size="14" font-weight="600">PostgreSQL · your database</text>
+          <text class="s" x="392" y="234">Relational, indexed, no spreadsheets</text>
+
+          <!-- internal wires -->
+          <line class="wire" x1="495" y1="120" x2="495" y2="128" marker-end="url(#arr2)"/>
+          <line class="wire" x1="495" y1="184" x2="495" y2="192" marker-end="url(#arr2)"/>
+          <line class="wire" x1="332" y1="120" x2="356" y2="150" marker-end="url(#arr2)"/>
+
+          <!-- RIGHT: integrations -->
+          <text class="cap" x="676" y="34">INTEGRATIONS</text>
+          <rect x="676" y="46"  width="200" height="56" rx="10" fill="#fff" stroke="#e7e0d2"/>
+          <text class="t" x="692" y="70" font-size="13.5" font-weight="600">VOIP dialer</text>
+          <text class="s" x="692" y="88">Click-to-call · recording · transcript</text>
+
+          <rect x="676" y="112" width="200" height="56" rx="10" fill="#fff" stroke="#e7e0d2"/>
+          <text class="t" x="692" y="136" font-size="13.5" font-weight="600">WhatsApp · OpenWA</text>
+          <text class="s" x="692" y="154">Send from the lead card</text>
+
+          <line class="wire" x1="634" y1="150" x2="676" y2="80"  marker-end="url(#arr2)"/>
+          <line class="wire" x1="634" y1="156" x2="676" y2="140" marker-end="url(#arr2)"/>
+
+          <!-- BOTTOM: cross-cutting bars -->
+          <rect x="24" y="320" width="416" height="56" rx="11" fill="#f0f5f1" stroke="#cfe0d4"/>
+          <text class="t" x="44" y="344" font-size="13.5" font-weight="600" fill="#2f6743">Access &amp; roles</text>
+          <text class="s" x="44" y="362">Secure login · Founder / Closer / Setter scoping</text>
+
+          <rect x="460" y="320" width="416" height="56" rx="11" fill="#fbeedd" stroke="#e7d9c2"/>
+          <text class="t" x="480" y="344" font-size="13.5" font-weight="600" fill="#a85f22">Hosting</text>
+          <text class="s" x="480" y="362">DecentraLabs subdomain · SSL · multi-client</text>
+
+          <line class="wire" x1="232" y1="276" x2="232" y2="320"/>
+          <line class="wire" x1="668" y1="276" x2="668" y2="320"/>
+        </svg>
+        <figcaption><b>Stack:</b> React front end, Node.js API and a PostgreSQL database you own, with the Meta Ads webhook, dialer and WhatsApp wired straight into the API, behind role-based access and hosted on your subdomain.</figcaption>
+      </figure>
+    </section>
+
+    <!-- 4. DELIVERABLES -->
+    <section>
+      <div class="sec-head"><span class="sec-num">04</span><h2>What we deliver</h2></div>
+      <p>Each item states what it is, how you confirm it is done, and how many rounds of
+      changes are included.</p>
 
       <div class="deliv">
         <h3><span class="d-id">D1</span>Access &amp; roles</h3>
         <ul>
           <li>Secure multi-user login. No shared or open access.</li>
-          <li>Role-based access for Founder / Admin, Closer and Setter, each role seeing and doing only what it should.</li>
+          <li>Role-based access for Founder / Admin, Closer and Setter, each seeing only what it should.</li>
           <li>Admin view across the whole floor; reps scoped to their own leads and KPIs.</li>
         </ul>
         <div class="accept">
@@ -441,11 +568,11 @@
       </div>
     </section>
 
-    <!-- 3. OUT OF SCOPE -->
+    <!-- 5. OUT OF SCOPE -->
     <section>
-      <div class="sec-head"><span class="sec-num">03</span><h2>Not in Phase 1</h2></div>
-      <p>The following are explicitly excluded from this SOW. They can be added later
-      through a signed change request (Section 08) or as part of Phases 2 and 3.</p>
+      <div class="sec-head"><span class="sec-num">05</span><h2>Not in Phase 1</h2></div>
+      <p>The following are explicitly excluded. They can be added later through a signed
+      change request (Section 10) or as part of Phases 2 and 3.</p>
       <ul class="blocklist excl">
         <li><strong>Phase 2 — Ops / Agency:</strong> content and delivery workflow, RevShare calculator, daily snapshot emails and agency delivery ops.</li>
         <li><strong>Phase 3 — Marketing &amp; Revenue:</strong> per-creator AI content tools (scriptwriter, hook, DM, competitor), marketing analytics and MRR / health-score.</li>
@@ -453,77 +580,61 @@
         <li>Email sequences, nurture automation and marketing-metric pulls (these sit in Phase 2).</li>
         <li>Data cleaning beyond a straight import and de-duplication of the files you provide.</li>
         <li>Staff training beyond the single handover walkthrough.</li>
-        <li>Any integration not named in Section 02.</li>
+        <li>Any integration not named in Section 04.</li>
       </ul>
     </section>
 
-    <!-- 4. TIMELINE -->
+    <!-- 6. TIMELINE -->
     <section>
-      <div class="sec-head"><span class="sec-num">04</span><h2>The four-day build</h2></div>
+      <div class="sec-head"><span class="sec-num">06</span><h2>The four-day build</h2></div>
       <p>Day numbers are offsets from the confirmed start, which begins once the advance
-      is paid and the access in Section 06 is in hand.</p>
-      <div class="timeline">
-        <div class="day">
-          <div class="d-label"><span class="d-big">01</span><span class="d-small">Foundation</span></div>
-          <div class="d-body">
-            <h3>Database, auth &amp; data migration</h3>
-            <p>Database and schema stood up, secure login and role-based access live, and a full import of your existing CRM data with de-duplication. Your data is in the new system from day one.</p>
-          </div>
-        </div>
-        <div class="day">
-          <div class="d-label"><span class="d-big">02</span><span class="d-small">Pipeline</span></div>
-          <div class="d-body">
-            <h3>Leads, pipeline &amp; payments</h3>
-            <p>Lead cards, configurable Kanban stages, source attribution, search, filters, saved views, round-robin assignment, and the deals and split-payment tracking that feeds the KPIs.</p>
-          </div>
-        </div>
-        <div class="day">
-          <div class="d-label"><span class="d-big">03</span><span class="d-small">Integrations</span></div>
-          <div class="d-body">
-            <h3>Ads, dialer &amp; WhatsApp</h3>
-            <p>Meta Ads webhook wired in, click-to-call with recording and transcripts, WhatsApp send from the lead card, and CSV export. The Arena leaderboard and KPI dashboards come online.</p>
-          </div>
-        </div>
-        <div class="day">
-          <div class="d-label"><span class="d-big">04</span><span class="d-small">Launch</span></div>
-          <div class="d-body">
-            <h3>Testing, mobile polish &amp; handover</h3>
-            <p>End-to-end testing across pipeline, payments, KPIs and integrations, mobile-responsive polish, deployment on your subdomain with SSL, and a live walkthrough handover.</p>
-          </div>
-        </div>
+      is paid and the access in Section 08 is in hand.</p>
+      <div>
+        <div class="day"><div><span class="d-big">01</span><span class="d-small">Foundation</span></div>
+          <div class="d-body"><h3>Database, auth &amp; data migration</h3>
+          <p>Database and schema stood up, secure login and role-based access live, and a full import of your existing CRM data with de-duplication. Your data is in the new system from day one.</p></div></div>
+        <div class="day"><div><span class="d-big">02</span><span class="d-small">Pipeline</span></div>
+          <div class="d-body"><h3>Leads, pipeline &amp; payments</h3>
+          <p>Lead cards, configurable Kanban stages, source attribution, search, filters, saved views, round-robin assignment, and the deals and split-payment tracking that feeds the KPIs.</p></div></div>
+        <div class="day"><div><span class="d-big">03</span><span class="d-small">Integrations</span></div>
+          <div class="d-body"><h3>Ads, dialer &amp; WhatsApp</h3>
+          <p>Meta Ads webhook wired in, click-to-call with recording and transcripts, WhatsApp send from the lead card, and CSV export. The Arena leaderboard and KPI dashboards come online.</p></div></div>
+        <div class="day"><div><span class="d-big">04</span><span class="d-small">Launch</span></div>
+          <div class="d-body"><h3>Testing, mobile polish &amp; handover</h3>
+          <p>End-to-end testing across pipeline, payments, KPIs and integrations, mobile-responsive polish, deployment on your subdomain with SSL, and a live walkthrough handover.</p></div></div>
       </div>
     </section>
 
-    <!-- 5. ACCEPTANCE -->
+    <!-- 7. ACCEPTANCE -->
     <section>
-      <div class="sec-head"><span class="sec-num">05</span><h2>How sign-off works</h2></div>
+      <div class="sec-head"><span class="sec-num">07</span><h2>How sign-off works</h2></div>
       <ul class="blocklist">
         <li>We tell you when Phase 1 is ready for review.</li>
-        <li>You have <strong>3 business days</strong> to check it against the acceptance criteria in Section 02 and either accept it or send written, specific feedback.</li>
+        <li>You have <strong>3 business days</strong> to check it against the acceptance criteria in Section 04 and either accept it or send written, specific feedback.</li>
         <li>If we hear nothing within that window, Phase 1 is treated as accepted.</li>
         <li>Feedback within the included revision rounds is handled at no extra cost. Anything beyond that, or outside the agreed criteria, becomes a change request.</li>
       </ul>
     </section>
 
-    <!-- 6. CLIENT RESPONSIBILITIES -->
+    <!-- 8. CLIENT RESPONSIBILITIES -->
     <section>
-      <div class="sec-head"><span class="sec-num">06</span><h2>What we need from DecentraLabs</h2></div>
+      <div class="sec-head"><span class="sec-num">08</span><h2>What we need from DecentraLabs</h2></div>
       <p>The four-day timeline and the price assume you provide the following within
       <strong>one business day</strong> of the start, so the clock is not waiting on access.</p>
       <ul class="blocklist">
         <li>A single named point of contact who can give approvals during the build window.</li>
         <li>Export or admin access to your current CRMs (Iron Forge and GoHighLevel) for leads, stages and payments.</li>
         <li>Meta / Facebook Ads form and webhook access.</li>
-        <li>Final stage names and your exact KPI definitions, confirmed against Section 02.</li>
+        <li>Final stage names and your exact KPI definitions, confirmed against Section 04.</li>
         <li>Team list with roles (Admin / Closer / Setter).</li>
         <li>The subdomain to host on, the VPS, and the dialer and WhatsApp numbers.</li>
       </ul>
       <p>Delays in providing access push the timeline out and may affect the price.</p>
     </section>
 
-    <!-- 7. AI, TOOLS & USAGE -->
+    <!-- 9. TOOLS -->
     <section>
-      <div class="sec-head"><span class="sec-num">07</span><h2>Tools &amp; running costs</h2></div>
+      <div class="sec-head"><span class="sec-num">09</span><h2>Tools &amp; running costs</h2></div>
       <ul class="blocklist">
         <li><strong>What we build with:</strong> a production stack with a relational database, secure role-based auth and API-first integrations. No spreadsheets behind the scenes.</li>
         <li><strong>Third-party costs are yours:</strong> hosting / VPS, the dialer and call-recording service, the WhatsApp number and any AI transcription usage are billed directly to DecentraLabs, not included in the build price. We confirm the exact costs before any integration proceeds.</li>
@@ -531,17 +642,17 @@
       </ul>
     </section>
 
-    <!-- 8. CHANGE REQUESTS -->
+    <!-- 10. CHANGE REQUESTS -->
     <section>
-      <div class="sec-head"><span class="sec-num">08</span><h2>Changes to scope</h2></div>
+      <div class="sec-head"><span class="sec-num">10</span><h2>Changes to scope</h2></div>
       <p>Any change to scope, deliverables, timeline or price is written down in a change
       request and signed by both sides before that work starts. Additional work outside
       the included revisions is quoted before it begins. Nothing verbal is binding.</p>
     </section>
 
-    <!-- 9. FEES -->
+    <!-- 11. FEES -->
     <section>
-      <div class="sec-head"><span class="sec-num">09</span><h2>Investment</h2></div>
+      <div class="sec-head"><span class="sec-num">11</span><h2>Investment</h2></div>
       <p>Phase 1 is the minimum build to get a working sales CRM with the integrations
       live. Phases 2 and 3 are quoted separately once their scope is agreed.</p>
 
@@ -549,7 +660,7 @@
         <div class="pricecard feature">
           <div class="pc-eye">Phase 1 · Sales CRM</div>
           <div class="pc-amt">$1,200</div>
-          <div class="pc-sub">Everything in Section 02, delivered in 4 working days.</div>
+          <div class="pc-sub">Everything in Section 04, delivered in 4 working days.</div>
         </div>
         <div class="pricecard">
           <div class="pc-eye">Phases 2 &amp; 3 · later</div>
@@ -560,9 +671,7 @@
 
       <h3 style="font-size:18px;margin:34px 0 4px;">Phase 1 payment schedule</h3>
       <table>
-        <thead>
-          <tr><th>Stage</th><th>Trigger</th><th class="amt">Amount (USD)</th></tr>
-        </thead>
+        <thead><tr><th>Stage</th><th>Trigger</th><th class="amt">Amount (USD)</th></tr></thead>
         <tbody>
           <tr><td><strong>Advance</strong></td><td>On signing, to lock the 4-day build slot and begin</td><td class="amt">$200</td></tr>
           <tr><td>Kickoff</td><td>Balance of the first half, as work starts</td><td class="amt">$400</td></tr>
@@ -580,9 +689,9 @@
       </div>
     </section>
 
-    <!-- 10. WHO BUILDS IT -->
+    <!-- 12. WHO BUILDS IT -->
     <section>
-      <div class="sec-head"><span class="sec-num">10</span><h2>Who builds it</h2></div>
+      <div class="sec-head"><span class="sec-num">12</span><h2>Who builds it</h2></div>
       <p>A small, senior team. You talk to the people doing the work.</p>
       <div class="founders">
         <div class="founder">
@@ -591,7 +700,7 @@
             <div class="f-name">Govind Goel</div>
             <div class="f-role">Business Head</div>
             <p>Owns the relationship, scope and delivery: requirements, sync calls, sign-off and making sure Phase 1 lands on time.</p>
-            <a href="https://www.linkedin.com/in/govind-goel-08886a194" target="_blank" rel="noopener">LinkedIn →</a>
+            <a href="https://www.linkedin.com/in/govind-goel-08886a194" target="_blank" rel="noopener">LinkedIn &rarr;</a>
           </div>
         </div>
         <div class="founder">
@@ -605,18 +714,18 @@
       </div>
     </section>
 
-    <!-- 11. SIGN OFF -->
+    <!-- 13. SIGN OFF -->
     <section>
-      <div class="sec-head"><span class="sec-num">11</span><h2>Sign-off</h2></div>
+      <div class="sec-head"><span class="sec-num">13</span><h2>Sign-off</h2></div>
       <p>By signing below, both parties accept this Scope of Work for Phase 1.</p>
       <div class="sign">
-        <div class="col">
+        <div>
           <span>Client</span>
           <div class="who">DecentraLabs</div>
           <div class="role">Authorised signatory</div>
           <div class="line">Name, signature &amp; date</div>
         </div>
-        <div class="col">
+        <div>
           <span>Service provider</span>
           <div class="who">Meteorify</div>
           <div class="role">Govind Goel, Business Head</div>
@@ -632,5 +741,6 @@
     <span>www.usemeteorify.com</span>
   </footer>
 
+</div>
 </body>
 </html>

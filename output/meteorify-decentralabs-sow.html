@@ -463,12 +463,12 @@
           <text class="cap" x="376" y="52">METEORIFY CRM</text>
 
           <rect x="376" y="64"  width="238" height="56" rx="10" fill="#fff" stroke="#e7e0d2"/>
-          <text class="t" x="392" y="88" font-size="14" font-weight="600">React front end</text>
+          <text class="t" x="392" y="88" font-size="14" font-weight="600">Next.js app</text>
           <text class="s" x="392" y="106">Pipeline, lead cards, dashboards, mobile</text>
 
           <rect x="376" y="128" width="238" height="56" rx="10" fill="#fff" stroke="#e7e0d2"/>
-          <text class="t" x="392" y="152" font-size="14" font-weight="600">Node.js API</text>
-          <text class="s" x="392" y="170">Business logic · webhooks · KPI engine</text>
+          <text class="t" x="392" y="152" font-size="14" font-weight="600">App logic &amp; webhooks</text>
+          <text class="s" x="392" y="170">Lead routing · KPI engine · ad-lead intake</text>
 
           <rect x="376" y="192" width="238" height="56" rx="10" fill="#fff" stroke="#e7e0d2"/>
           <text class="t" x="392" y="216" font-size="14" font-weight="600">PostgreSQL · your database</text>
@@ -482,8 +482,8 @@
           <!-- RIGHT: integrations (Phase 1.5) -->
           <text class="cap" x="676" y="34" fill="#8b8d96">CALLING &amp; MESSAGING · PHASE 1.5</text>
           <rect x="676" y="46"  width="200" height="56" rx="10" fill="#f6f3ec" stroke="#cfcdc6" stroke-dasharray="5 4"/>
-          <text class="t" x="692" y="70" font-size="13.5" font-weight="600">VOIP dialer · IVR</text>
-          <text class="s" x="692" y="88">Click-to-call · recording · transcript</text>
+          <text class="t" x="692" y="70" font-size="13.5" font-weight="600">Dialer</text>
+          <text class="s" x="692" y="88">Click-to-call · recordings · transcripts</text>
 
           <rect x="676" y="112" width="200" height="56" rx="10" fill="#f6f3ec" stroke="#cfcdc6" stroke-dasharray="5 4"/>
           <text class="t" x="692" y="136" font-size="13.5" font-weight="600">WhatsApp · OpenWA</text>
@@ -504,7 +504,7 @@
           <line class="wire" x1="232" y1="276" x2="232" y2="320"/>
           <line class="wire" x1="668" y1="276" x2="668" y2="320"/>
         </svg>
-        <figcaption><b>Stack:</b> React front end, Node.js API and a PostgreSQL database you own, with the Meta Ads webhook wired straight into the API, behind role-based access and hosted on your subdomain. The dashed calling and WhatsApp blocks are added in Phase 1.5.</figcaption>
+        <figcaption><b>Stack:</b> a Next.js app and a PostgreSQL database you own, with the Meta Ads webhook wired straight in, behind role-based access and hosted on your subdomain. The dashed dialer and WhatsApp blocks are added in Phase 1.5.</figcaption>
       </figure>
     </section>
 
@@ -590,19 +590,19 @@
       <div class="sec-head"><span class="sec-num">1.5</span><h2>Phase 1.5 — Calls &amp; messaging</h2></div>
       <p>The calling and messaging layer that sits on top of the Phase 1 CRM. It is scoped
       and priced separately, and the <strong>budget is to be decided</strong> for now, because
-      it depends on the dialer / VOIP provider, the WhatsApp number and the per-use costs we
+      it depends on the dialer provider, the WhatsApp number and the per-use costs we
       confirm with you first. It is built on the same stack, so it bolts onto Phase 1 without
       a rebuild.</p>
       <div class="deliv">
         <h3><span class="d-id">P1.5</span>What it adds</h3>
         <ul>
-          <li><strong>Click-to-call dialer (VOIP / IVR)</strong> from the lead card, no switching to another app.</li>
-          <li><strong>Call recording and transcript</strong> saved on the lead's activity history.</li>
+          <li><strong>Click-to-call dialer</strong> from the lead card, no switching to another app.</li>
+          <li><strong>Call recordings and transcripts</strong> saved on the lead's activity history.</li>
           <li><strong>WhatsApp</strong> send to a lead directly from the CRM via OpenWA.</li>
           <li>Call-based KPIs (call rate, connected, call outcomes) light up in the Arena once the dialer is live.</li>
         </ul>
         <div class="accept">
-          <div><span>Budget</span><p>To be decided. Depends on the chosen dialer / VOIP provider, WhatsApp number and usage costs, all confirmed with you before any commitment.</p></div>
+          <div><span>Budget</span><p>To be decided. Depends on the chosen dialer provider, WhatsApp number and usage costs, all confirmed with you before any commitment.</p></div>
           <div><span>Timeline</span><p>Scheduled after Phase 1 acceptance, scoped alongside the pricing.</p></div>
         </div>
       </div>
@@ -616,7 +616,7 @@
       <ul class="blocklist excl">
         <li><strong>Phase 2 — Ops / Agency:</strong> content and delivery workflow, RevShare calculator, daily snapshot emails and agency delivery ops.</li>
         <li><strong>Phase 3 — Marketing &amp; Revenue:</strong> per-creator AI content tools (scriptwriter, hook, DM, competitor), marketing analytics and MRR / health-score.</li>
-        <li><strong>Calls &amp; messaging:</strong> the dialer (VOIP / IVR), call recording, transcripts and WhatsApp are <strong>Phase 1.5</strong>, scoped and priced separately.</li>
+        <li><strong>Calls &amp; messaging:</strong> the dialer, recordings, transcripts and WhatsApp are <strong>Phase 1.5</strong>, scoped and priced separately.</li>
         <li>Hosting, VPS, domain, dialer number, WhatsApp number and any third-party subscription or usage fees.</li>
         <li>Email sequences, nurture automation and marketing-metric pulls (these sit in Phase 2).</li>
         <li>Data cleaning beyond a straight import and de-duplication of the files you provide.</li>
@@ -708,7 +708,7 @@
         <div class="pricecard">
           <div class="pc-eye">Phase 1.5 · Calls &amp; messaging</div>
           <div class="pc-amt">TBD</div>
-          <div class="pc-sub">Dialer (VOIP / IVR), recording, transcripts and WhatsApp. Budget decided once the tooling is confirmed.</div>
+          <div class="pc-sub">Dialer, recordings, transcripts and WhatsApp. Budget decided once the tooling is confirmed.</div>
         </div>
         <div class="pricecard">
           <div class="pc-eye">Phases 2 &amp; 3 · later</div>

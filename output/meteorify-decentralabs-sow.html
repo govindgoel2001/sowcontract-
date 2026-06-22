@@ -450,13 +450,16 @@
           <rect x="24" y="150" width="170" height="44" rx="9" fill="#fff" stroke="#e7e0d2"/>
           <text class="t" x="40" y="177" font-size="13.5">Manual entry</text>
 
-          <!-- webhook ingest -->
-          <line class="wire" x1="194" y1="68"  x2="236" y2="118" marker-end="url(#arr2)"/>
-          <line class="wire" x1="194" y1="120" x2="236" y2="120" marker-end="url(#arr2)"/>
-          <line class="wire" x1="194" y1="172" x2="236" y2="124" marker-end="url(#arr2)"/>
+          <!-- ads go through the webhook -->
+          <line class="wire" x1="194" y1="68"  x2="236" y2="112" marker-end="url(#arr2)"/>
           <rect x="240" y="96" width="92" height="48" rx="9" fill="#fbeedd" stroke="#e7d9c2"/>
-          <text class="t" x="256" y="118" font-size="12.5">Webhook</text>
-          <text class="s" x="256" y="134">ingestion</text>
+          <text class="t" x="256" y="118" font-size="12.5">Ads</text>
+          <text class="s" x="256" y="134">webhook</text>
+
+          <!-- CSV + manual entry go straight into the app, no webhook -->
+          <path class="wire" d="M194 120 H214 V176 H352" fill="none" marker-end="url(#arr2)"/>
+          <path class="wire" d="M194 172 H214" fill="none"/>
+          <text class="s" x="200" y="210" font-size="10.5">CSV &amp; manual: direct</text>
 
           <!-- CENTER: CRM core -->
           <rect x="356" y="26" width="278" height="250" rx="14" fill="#faf6ee" stroke="#e7e0d2"/>
@@ -486,7 +489,7 @@
           <text class="s" x="692" y="88">Click-to-call · recordings · transcripts</text>
 
           <rect x="676" y="112" width="200" height="56" rx="10" fill="#f6f3ec" stroke="#cfcdc6" stroke-dasharray="5 4"/>
-          <text class="t" x="692" y="136" font-size="13.5" font-weight="600">WhatsApp · OpenWA</text>
+          <text class="t" x="692" y="136" font-size="13.5" font-weight="600">WhatsApp</text>
           <text class="s" x="692" y="154">Send from the lead card</text>
 
           <line class="wire" x1="634" y1="150" x2="676" y2="80"  marker-end="url(#arr2)" stroke-dasharray="5 4"/>
@@ -504,7 +507,7 @@
           <line class="wire" x1="232" y1="276" x2="232" y2="320"/>
           <line class="wire" x1="668" y1="276" x2="668" y2="320"/>
         </svg>
-        <figcaption><b>Stack:</b> a Next.js app and a PostgreSQL database you own, with the Meta Ads webhook wired straight in, behind role-based access and hosted on your subdomain. The dashed dialer and WhatsApp blocks are added in Phase 1.5.</figcaption>
+        <figcaption><b>Stack:</b> a Next.js app and a PostgreSQL database you own. Ad leads arrive through the Meta Ads webhook; CSV import and manual entry go straight into the app. All behind role-based access and hosted on your subdomain. The dashed dialer and WhatsApp blocks are added in Phase 1.5.</figcaption>
       </figure>
     </section>
 
@@ -598,7 +601,7 @@
         <ul>
           <li><strong>Click-to-call dialer</strong> from the lead card, no switching to another app.</li>
           <li><strong>Call recordings and transcripts</strong> saved on the lead's activity history.</li>
-          <li><strong>WhatsApp</strong> send to a lead directly from the CRM via OpenWA.</li>
+          <li><strong>WhatsApp</strong> send to a lead directly from the CRM.</li>
           <li>Call-based KPIs (call rate, connected, call outcomes) light up in the Arena once the dialer is live.</li>
         </ul>
         <div class="accept">

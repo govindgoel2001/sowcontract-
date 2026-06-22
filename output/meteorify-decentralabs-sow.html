@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Meteorify × DecentraLabs — Statement of Work</title>
+<title>Meteorify × DecentraLabs — Scope of Work</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,400..500&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -197,11 +197,37 @@
     display:flex; justify-content:space-between; align-items:center; font-size:13px; color:var(--ink-dim); flex-wrap:wrap; gap:10px; }
 
   @media (max-width:680px){
-    .pad,.cover,.clients,footer{ padding-left:24px; padding-right:24px; }
-    .cover h1{ font-size:44px; }
-    .meta-grid{ grid-template-columns:repeat(2,1fr); }
+    body{ font-size:15.5px; }
+    .pad,.clients{ padding-left:22px; padding-right:22px; }
+    .cover{ padding:48px 22px 40px; }
+    footer{ padding:24px 22px 34px; }
+    .cover h1{ font-size:40px; margin:38px 0 14px; }
+    .cover .pairing{ font-size:16px; }
+    .meta-grid{ grid-template-columns:repeat(2,1fr); gap:14px; margin-top:38px; }
+    h2{ font-size:26px; }
+    .lead{ font-size:17px; }
+    section{ margin-top:46px; }
     .founders,.sign,.accept{ grid-template-columns:1fr; }
-    .day{ grid-template-columns:1fr; gap:8px; }
+    .accept{ gap:12px; }
+    .day{ grid-template-columns:1fr; gap:6px; }
+    .day .d-big{ font-size:24px; }
+    .deliv{ padding:20px; }
+    .pricecard{ flex:1 1 100%; }
+    /* keep the diagrams legible: let them scroll instead of shrinking to nothing */
+    figure{ overflow-x:auto; -webkit-overflow-scrolling:touch; }
+    figure svg{ min-width:560px; }
+    figcaption{ padding:11px 14px; }
+    /* tables stay readable */
+    th,td{ padding:11px 10px; }
+    table{ font-size:13.5px; }
+    .logo{ font-size:18px; padding:20px 8px; min-width:46%; flex:1 1 46%; }
+    .logos{ flex-wrap:wrap; }
+    .logo:nth-child(2){ border-right:none; }
+    .logo:nth-child(1),.logo:nth-child(2){ border-bottom:1px solid var(--line-soft); }
+  }
+  @media (max-width:380px){
+    .cover h1{ font-size:34px; }
+    .meta-grid{ grid-template-columns:1fr 1fr; }
   }
   @media print{
     body{ background:#fff; font-size:11.5pt; }
@@ -261,7 +287,7 @@
       <div class="brandname">Meteorify<span> · Studio</span></div>
     </div>
 
-    <h1>Statement of <em>Work</em></h1>
+    <h1>Scope of <em>Work</em></h1>
     <p class="pairing"><b>Meteorify</b> &nbsp;×&nbsp; <b>DecentraLabs</b></p>
     <span class="phase-tag">Phase 1 &nbsp;·&nbsp; <b>Sales CRM</b></span>
 
@@ -269,7 +295,7 @@
       <div><span>Issued</span><p>21 June 2026</p></div>
       <div><span>Reference</span><p>MTR-SOW-2026-001</p></div>
       <div><span>Status</span><p>Draft for review</p></div>
-      <div><span>Delivery</span><p>4 working days</p></div>
+      <div><span>Delivery</span><p>By agreement</p></div>
     </div>
   </header>
 
@@ -290,7 +316,7 @@
     <section>
       <div class="sec-head"><span class="sec-num">01</span><h2>The objective</h2></div>
       <p class="lead">Give DecentraLabs one secure sales command centre that replaces the
-      patchwork of CRMs and spreadsheets, live within four working days.</p>
+      patchwork of CRMs and spreadsheets.</p>
       <p>Phase 1 is the sales engine, the part of the business currently holding back
       revenue. By the end of the build, the team logs in to a single place where every
       lead, deal, payment and KPI lives together, with ad leads flowing in on their own
@@ -601,20 +627,21 @@
 
     <!-- 6. TIMELINE -->
     <section>
-      <div class="sec-head"><span class="sec-num">06</span><h2>The four-day build</h2></div>
-      <p>Day numbers are offsets from the confirmed start, which begins once the advance
-      is paid and the access in Section 08 is in hand.</p>
+      <div class="sec-head"><span class="sec-num">06</span><h2>The build sequence</h2></div>
+      <p>Work runs in four stages, in this order, starting once the advance is paid and the
+      access in Section 08 is in hand. The delivery date is agreed with you directly rather
+      than fixed in this document.</p>
       <div>
-        <div class="day"><div><span class="d-big">01</span><span class="d-small">Foundation</span></div>
+        <div class="day"><div><span class="d-big">01</span><span class="d-small">Stage one</span></div>
           <div class="d-body"><h3>Database, auth &amp; data migration</h3>
           <p>Database and schema stood up, secure login and role-based access live, and a full import of your existing CRM data with de-duplication. Your data is in the new system from day one.</p></div></div>
-        <div class="day"><div><span class="d-big">02</span><span class="d-small">Pipeline</span></div>
+        <div class="day"><div><span class="d-big">02</span><span class="d-small">Stage two</span></div>
           <div class="d-body"><h3>Leads, pipeline &amp; lead intake</h3>
           <p>Lead cards, configurable Kanban stages, source attribution, search, filters, saved views, round-robin assignment, the Meta Ads webhook for inbound leads, and CSV import / export.</p></div></div>
-        <div class="day"><div><span class="d-big">03</span><span class="d-small">Revenue</span></div>
+        <div class="day"><div><span class="d-big">03</span><span class="d-small">Stage three</span></div>
           <div class="d-body"><h3>Payments, KPIs &amp; Arena</h3>
           <p>Deals and split-payment tracking, then the KPI engine and the Arena leaderboard and dashboards computed from bookings and payments in real time.</p></div></div>
-        <div class="day"><div><span class="d-big">04</span><span class="d-small">Launch</span></div>
+        <div class="day"><div><span class="d-big">04</span><span class="d-small">Stage four</span></div>
           <div class="d-body"><h3>Testing, mobile polish &amp; handover</h3>
           <p>End-to-end testing across pipeline, payments and KPIs, mobile-responsive polish, deployment on your subdomain with SSL, and a live walkthrough handover.</p></div></div>
       </div>
@@ -634,8 +661,8 @@
     <!-- 8. CLIENT RESPONSIBILITIES -->
     <section>
       <div class="sec-head"><span class="sec-num">08</span><h2>What we need from DecentraLabs</h2></div>
-      <p>The four-day timeline and the price assume you provide the following within
-      <strong>one business day</strong> of the start, so the clock is not waiting on access.</p>
+      <p>The timeline and the price assume you provide the following promptly at the start,
+      so the build is not waiting on access.</p>
       <ul class="blocklist">
         <li>A single named point of contact who can give approvals during the build window.</li>
         <li>Export or admin access to your current CRMs (Iron Forge and GoHighLevel) for leads, stages and payments.</li>
@@ -676,7 +703,7 @@
         <div class="pricecard feature">
           <div class="pc-eye">Phase 1 · Sales CRM</div>
           <div class="pc-amt">$1,200</div>
-          <div class="pc-sub">Everything in Section 04, delivered in 4 working days.</div>
+          <div class="pc-sub">Everything in Section 04, delivered to the date agreed with you.</div>
         </div>
         <div class="pricecard">
           <div class="pc-eye">Phase 1.5 · Calls &amp; messaging</div>
@@ -694,14 +721,14 @@
       <table>
         <thead><tr><th>Stage</th><th>Trigger</th><th class="amt">Amount (USD)</th></tr></thead>
         <tbody>
-          <tr><td><strong>Advance</strong></td><td>On signing, to lock the 4-day build slot and begin</td><td class="amt">$200</td></tr>
+          <tr><td><strong>Advance</strong></td><td>On signing, to lock the build slot and begin</td><td class="amt">$200</td></tr>
           <tr><td>On delivery</td><td>Balance, on acceptance of Phase 1</td><td class="amt">$1,000</td></tr>
           <tr class="total-row"><td><strong>Total — Phase 1</strong></td><td></td><td class="amt"><strong>$1,200</strong></td></tr>
         </tbody>
       </table>
 
       <div class="note">
-        A $200 advance on signing locks the 4-day build slot and starts the clock; the
+        A $200 advance on signing locks the build slot and starts the work; the
         remaining $1,000 is due on the delivery day, on acceptance of Phase 1. Phase 1.5
         (calls and messaging) and Phases 2 and 3 (the $1,300 ops, AI and marketing layers)
         are scoped, priced and scheduled separately once we define them together. Fees are
@@ -757,7 +784,7 @@
   </div>
 
   <footer>
-    <span>Meteorify · Statement of Work · Phase 1</span>
+    <span>Meteorify · Scope of Work · Phase 1</span>
     <span>www.usemeteorify.com</span>
   </footer>
 

@@ -263,7 +263,7 @@
 
     <h1>Statement of <em>Work</em></h1>
     <p class="pairing"><b>Meteorify</b> &nbsp;×&nbsp; <b>DecentraLabs</b></p>
-    <span class="phase-tag">Phase 1 &nbsp;·&nbsp; <b>Sales CRM &amp; Integrations</b></span>
+    <span class="phase-tag">Phase 1 &nbsp;·&nbsp; <b>Sales CRM</b></span>
 
     <div class="meta-grid">
       <div><span>Issued</span><p>21 June 2026</p></div>
@@ -293,16 +293,18 @@
       patchwork of CRMs and spreadsheets, live within four working days.</p>
       <p>Phase 1 is the sales engine, the part of the business currently holding back
       revenue. By the end of the build, the team logs in to a single place where every
-      lead, call, message, payment and KPI lives together, with ad leads flowing in on
-      their own and the floor ranked in real time. Phases 2 and 3 build on top of it
-      later; only Phase 1 is in scope here.</p>
+      lead, deal, payment and KPI lives together, with ad leads flowing in on their own
+      and the floor ranked in real time. The calling and WhatsApp layer follows as
+      Phase 1.5; the broader ops and AI work is Phases 2 and 3. Only the Phase 1 sales
+      CRM is in scope and priced here.</p>
     </section>
 
     <!-- 2. HOW IT BEHAVES -->
     <section>
       <div class="sec-head"><span class="sec-num">02</span><h2>How the CRM behaves</h2></div>
-      <p>A lead arrives, lands on the board, gets worked through calls and messages, turns
-      into a tracked deal, and feeds the leaderboard. One continuous flow, no re-keying.</p>
+      <p>A lead arrives, lands on the board, gets worked and tracked as a deal, and feeds
+      the leaderboard. One continuous flow, no re-keying. The calling and WhatsApp layer
+      plugs into the same flow in Phase 1.5.</p>
 
       <figure>
         <svg viewBox="0 0 900 430" role="img" aria-label="Sales CRM behaviour flow">
@@ -367,7 +369,7 @@
           <line class="flow" x1="318" y1="184" x2="318" y2="214" marker-end="url(#arr)"/>
           <rect x="258" y="222" width="378" height="58" rx="11" fill="#fff" stroke="#e7e0d2"/>
           <text class="sub" x="276" y="244" font-weight="600" fill="#a85f22" font-size="11" letter-spacing="0.06em">EVERY ACTION LANDS ON THE LEAD</text>
-          <text class="lbl" x="276" y="266" font-size="13">Click-to-call + transcript · WhatsApp · Notes · Split payments</text>
+          <text class="lbl" x="276" y="266" font-size="12.5">Notes &amp; split payments (Phase 1) · calls + WhatsApp (Phase 1.5)</text>
 
           <!-- to KPIs -->
           <line class="flow" x1="636" y1="251" x2="700" y2="251" marker-end="url(#arr)"/>
@@ -388,15 +390,16 @@
           <!-- inbound to board curve from left card already drawn; activity feeds board back -->
           <path class="flow" d="M 447 280 C 447 320, 320 320, 318 300" opacity="0" />
         </svg>
-        <figcaption><b>Flow:</b> lead in &rarr; pipeline board &rarr; calls, WhatsApp, notes and payments recorded on the lead &rarr; KPIs and the Arena leaderboard update in real time.</figcaption>
+        <figcaption><b>Flow:</b> lead in &rarr; pipeline board &rarr; notes and payments recorded on the lead &rarr; KPIs and the Arena leaderboard update in real time. The calling and WhatsApp layer plugs into the same flow in <b>Phase 1.5</b>.</figcaption>
       </figure>
     </section>
 
     <!-- 3. ARCHITECTURE -->
     <section>
       <div class="sec-head"><span class="sec-num">03</span><h2>How it is built</h2></div>
-      <p>A custom, production stack on your own database and subdomain. Integrations talk
-      to the API directly, so the dialer, WhatsApp and ad leads all live inside one system.</p>
+      <p>A custom, production stack on your own database and subdomain. Phase 1 ships the
+      CRM and ad-lead intake. The calling and WhatsApp layer (shown dashed) plugs into the
+      same API in Phase 1.5, so nothing has to be rebuilt to add it.</p>
 
       <figure>
         <svg viewBox="0 0 900 440" role="img" aria-label="System architecture">
@@ -450,18 +453,18 @@
           <line class="wire" x1="495" y1="184" x2="495" y2="192" marker-end="url(#arr2)"/>
           <line class="wire" x1="332" y1="120" x2="356" y2="150" marker-end="url(#arr2)"/>
 
-          <!-- RIGHT: integrations -->
-          <text class="cap" x="676" y="34">INTEGRATIONS</text>
-          <rect x="676" y="46"  width="200" height="56" rx="10" fill="#fff" stroke="#e7e0d2"/>
-          <text class="t" x="692" y="70" font-size="13.5" font-weight="600">VOIP dialer</text>
+          <!-- RIGHT: integrations (Phase 1.5) -->
+          <text class="cap" x="676" y="34" fill="#8b8d96">CALLING &amp; MESSAGING · PHASE 1.5</text>
+          <rect x="676" y="46"  width="200" height="56" rx="10" fill="#f6f3ec" stroke="#cfcdc6" stroke-dasharray="5 4"/>
+          <text class="t" x="692" y="70" font-size="13.5" font-weight="600">VOIP dialer · IVR</text>
           <text class="s" x="692" y="88">Click-to-call · recording · transcript</text>
 
-          <rect x="676" y="112" width="200" height="56" rx="10" fill="#fff" stroke="#e7e0d2"/>
+          <rect x="676" y="112" width="200" height="56" rx="10" fill="#f6f3ec" stroke="#cfcdc6" stroke-dasharray="5 4"/>
           <text class="t" x="692" y="136" font-size="13.5" font-weight="600">WhatsApp · OpenWA</text>
           <text class="s" x="692" y="154">Send from the lead card</text>
 
-          <line class="wire" x1="634" y1="150" x2="676" y2="80"  marker-end="url(#arr2)"/>
-          <line class="wire" x1="634" y1="156" x2="676" y2="140" marker-end="url(#arr2)"/>
+          <line class="wire" x1="634" y1="150" x2="676" y2="80"  marker-end="url(#arr2)" stroke-dasharray="5 4"/>
+          <line class="wire" x1="634" y1="156" x2="676" y2="140" marker-end="url(#arr2)" stroke-dasharray="5 4"/>
 
           <!-- BOTTOM: cross-cutting bars -->
           <rect x="24" y="320" width="416" height="56" rx="11" fill="#f0f5f1" stroke="#cfe0d4"/>
@@ -475,7 +478,7 @@
           <line class="wire" x1="232" y1="276" x2="232" y2="320"/>
           <line class="wire" x1="668" y1="276" x2="668" y2="320"/>
         </svg>
-        <figcaption><b>Stack:</b> React front end, Node.js API and a PostgreSQL database you own, with the Meta Ads webhook, dialer and WhatsApp wired straight into the API, behind role-based access and hosted on your subdomain.</figcaption>
+        <figcaption><b>Stack:</b> React front end, Node.js API and a PostgreSQL database you own, with the Meta Ads webhook wired straight into the API, behind role-based access and hosted on your subdomain. The dashed calling and WhatsApp blocks are added in Phase 1.5.</figcaption>
       </figure>
     </section>
 
@@ -499,35 +502,23 @@
       </div>
 
       <div class="deliv">
-        <h3><span class="d-id">D2</span>Leads &amp; pipeline</h3>
+        <h3><span class="d-id">D2</span>Leads, pipeline &amp; lead intake</h3>
         <ul>
           <li>Lead card with contact, source, priority, follower count, budget, owner, status, notes and full activity history.</li>
           <li>Kanban pipeline with configurable stages (your milestones / qualified / cash-collected).</li>
           <li>Lead-source attribution, auto-tagging source and UTM on entry.</li>
+          <li><strong>Meta / Facebook Ads webhook</strong>, so new ad leads flow in automatically with no manual entry.</li>
+          <li><strong>CSV import with de-duplication</strong> to port existing GoHighLevel / Iron Forge data, plus CSV export.</li>
           <li>Global search, filters, saved views, bulk actions and round-robin assignment to reps.</li>
         </ul>
         <div class="accept">
-          <div><span>Acceptance criteria</span><p>A new lead can be created, moved across all stages, assigned, filtered and found by search, with every change recorded in its activity history.</p></div>
+          <div><span>Acceptance criteria</span><p>A test ad lead arrives via webhook, a sample CSV imports with duplicates flagged, and a lead can be moved across all stages, assigned, filtered and found by search, with every change in its activity history.</p></div>
           <div><span>Revisions included</span><p>2 rounds</p></div>
         </div>
       </div>
 
       <div class="deliv">
-        <h3><span class="d-id">D3</span>Integrations &amp; data migration</h3>
-        <ul>
-          <li><strong>Meta / Facebook Ads webhook</strong>, so new ad leads flow in automatically with no manual entry.</li>
-          <li><strong>Click-to-call dialer (VOIP / IVR)</strong> from the lead card, with call recording and transcript saved on the lead.</li>
-          <li><strong>WhatsApp</strong> send to a lead directly from the CRM via OpenWA.</li>
-          <li><strong>CSV import with de-duplication</strong> to port existing GoHighLevel / Iron Forge data, plus CSV export.</li>
-        </ul>
-        <div class="accept">
-          <div><span>Acceptance criteria</span><p>A test ad lead arrives via webhook; a test call places, records and transcribes; a WhatsApp message sends from a lead; and a sample CSV imports with duplicates flagged.</p></div>
-          <div><span>Revisions included</span><p>2 rounds</p></div>
-        </div>
-      </div>
-
-      <div class="deliv">
-        <h3><span class="d-id">D4</span>Payments &amp; deals</h3>
+        <h3><span class="d-id">D3</span>Payments &amp; deals</h3>
         <ul>
           <li>Deal value with split / partial payments, tracking each tranche (e.g. a 50,000 deal with 30,000 collected).</li>
           <li>Date-based reminder for the next payment split.</li>
@@ -541,20 +532,20 @@
       </div>
 
       <div class="deliv">
-        <h3><span class="d-id">D5</span>KPIs, Arena &amp; graphs</h3>
+        <h3><span class="d-id">D4</span>KPIs, Arena &amp; graphs</h3>
         <ul>
           <li>Arena leaderboard, a gamified per-rep ranking that drives the floor.</li>
           <li>Graphical dashboards with daily trend graphs, not just monthly totals.</li>
-          <li>KPIs auto-computed from activity (calls, bookings, payments) per rep and per team: call rate, connected, booking rate, no-show, deals closed, close rate, revenue, cash collected, pending, collect rate, churn, leaderboard rank and trends.</li>
+          <li>KPIs auto-computed from activity (bookings and payments) per rep and per team: booking rate, no-show, deals closed, close rate, revenue, cash collected, pending, collect rate, churn, leaderboard rank and trends. Call-based KPIs switch on with the dialer in Phase 1.5.</li>
         </ul>
         <div class="accept">
-          <div><span>Acceptance criteria</span><p>Logging calls, bookings and payments updates the matching KPIs and the leaderboard order in real time, with daily, weekly and monthly trend views available.</p></div>
+          <div><span>Acceptance criteria</span><p>Logging bookings and payments updates the matching KPIs and the leaderboard order in real time, with daily, weekly and monthly trend views available.</p></div>
           <div><span>Revisions included</span><p>2 rounds</p></div>
         </div>
       </div>
 
       <div class="deliv">
-        <h3><span class="d-id">D6</span>Platform &amp; deployment</h3>
+        <h3><span class="d-id">D5</span>Platform &amp; deployment</h3>
         <ul>
           <li>Multi-client command centre to run several clients' sales from one place.</li>
           <li>Mobile-responsive across laptop, tablet and phone.</li>
@@ -568,6 +559,29 @@
       </div>
     </section>
 
+    <!-- PHASE 1.5 -->
+    <section>
+      <div class="sec-head"><span class="sec-num">1.5</span><h2>Phase 1.5 — Calls &amp; messaging</h2></div>
+      <p>The calling and messaging layer that sits on top of the Phase 1 CRM. It is scoped
+      and priced separately, and the <strong>budget is to be decided</strong> for now, because
+      it depends on the dialer / VOIP provider, the WhatsApp number and the per-use costs we
+      confirm with you first. It is built on the same stack, so it bolts onto Phase 1 without
+      a rebuild.</p>
+      <div class="deliv">
+        <h3><span class="d-id">P1.5</span>What it adds</h3>
+        <ul>
+          <li><strong>Click-to-call dialer (VOIP / IVR)</strong> from the lead card, no switching to another app.</li>
+          <li><strong>Call recording and transcript</strong> saved on the lead's activity history.</li>
+          <li><strong>WhatsApp</strong> send to a lead directly from the CRM via OpenWA.</li>
+          <li>Call-based KPIs (call rate, connected, call outcomes) light up in the Arena once the dialer is live.</li>
+        </ul>
+        <div class="accept">
+          <div><span>Budget</span><p>To be decided. Depends on the chosen dialer / VOIP provider, WhatsApp number and usage costs, all confirmed with you before any commitment.</p></div>
+          <div><span>Timeline</span><p>Scheduled after Phase 1 acceptance, scoped alongside the pricing.</p></div>
+        </div>
+      </div>
+    </section>
+
     <!-- 5. OUT OF SCOPE -->
     <section>
       <div class="sec-head"><span class="sec-num">05</span><h2>Not in Phase 1</h2></div>
@@ -576,6 +590,7 @@
       <ul class="blocklist excl">
         <li><strong>Phase 2 — Ops / Agency:</strong> content and delivery workflow, RevShare calculator, daily snapshot emails and agency delivery ops.</li>
         <li><strong>Phase 3 — Marketing &amp; Revenue:</strong> per-creator AI content tools (scriptwriter, hook, DM, competitor), marketing analytics and MRR / health-score.</li>
+        <li><strong>Calls &amp; messaging:</strong> the dialer (VOIP / IVR), call recording, transcripts and WhatsApp are <strong>Phase 1.5</strong>, scoped and priced separately.</li>
         <li>Hosting, VPS, domain, dialer number, WhatsApp number and any third-party subscription or usage fees.</li>
         <li>Email sequences, nurture automation and marketing-metric pulls (these sit in Phase 2).</li>
         <li>Data cleaning beyond a straight import and de-duplication of the files you provide.</li>
@@ -594,14 +609,14 @@
           <div class="d-body"><h3>Database, auth &amp; data migration</h3>
           <p>Database and schema stood up, secure login and role-based access live, and a full import of your existing CRM data with de-duplication. Your data is in the new system from day one.</p></div></div>
         <div class="day"><div><span class="d-big">02</span><span class="d-small">Pipeline</span></div>
-          <div class="d-body"><h3>Leads, pipeline &amp; payments</h3>
-          <p>Lead cards, configurable Kanban stages, source attribution, search, filters, saved views, round-robin assignment, and the deals and split-payment tracking that feeds the KPIs.</p></div></div>
-        <div class="day"><div><span class="d-big">03</span><span class="d-small">Integrations</span></div>
-          <div class="d-body"><h3>Ads, dialer &amp; WhatsApp</h3>
-          <p>Meta Ads webhook wired in, click-to-call with recording and transcripts, WhatsApp send from the lead card, and CSV export. The Arena leaderboard and KPI dashboards come online.</p></div></div>
+          <div class="d-body"><h3>Leads, pipeline &amp; lead intake</h3>
+          <p>Lead cards, configurable Kanban stages, source attribution, search, filters, saved views, round-robin assignment, the Meta Ads webhook for inbound leads, and CSV import / export.</p></div></div>
+        <div class="day"><div><span class="d-big">03</span><span class="d-small">Revenue</span></div>
+          <div class="d-body"><h3>Payments, KPIs &amp; Arena</h3>
+          <p>Deals and split-payment tracking, then the KPI engine and the Arena leaderboard and dashboards computed from bookings and payments in real time.</p></div></div>
         <div class="day"><div><span class="d-big">04</span><span class="d-small">Launch</span></div>
           <div class="d-body"><h3>Testing, mobile polish &amp; handover</h3>
-          <p>End-to-end testing across pipeline, payments, KPIs and integrations, mobile-responsive polish, deployment on your subdomain with SSL, and a live walkthrough handover.</p></div></div>
+          <p>End-to-end testing across pipeline, payments and KPIs, mobile-responsive polish, deployment on your subdomain with SSL, and a live walkthrough handover.</p></div></div>
       </div>
     </section>
 
@@ -627,7 +642,7 @@
         <li>Meta / Facebook Ads form and webhook access.</li>
         <li>Final stage names and your exact KPI definitions, confirmed against Section 04.</li>
         <li>Team list with roles (Admin / Closer / Setter).</li>
-        <li>The subdomain to host on, the VPS, and the dialer and WhatsApp numbers.</li>
+        <li>The subdomain to host on and the VPS. The dialer and WhatsApp numbers are needed for Phase 1.5, not Phase 1.</li>
       </ul>
       <p>Delays in providing access push the timeline out and may affect the price.</p>
     </section>
@@ -637,8 +652,8 @@
       <div class="sec-head"><span class="sec-num">09</span><h2>Tools &amp; running costs</h2></div>
       <ul class="blocklist">
         <li><strong>What we build with:</strong> a production stack with a relational database, secure role-based auth and API-first integrations. No spreadsheets behind the scenes.</li>
-        <li><strong>Third-party costs are yours:</strong> hosting / VPS, the dialer and call-recording service, the WhatsApp number and any AI transcription usage are billed directly to DecentraLabs, not included in the build price. We confirm the exact costs before any integration proceeds.</li>
-        <li><strong>Call transcripts are AI-generated</strong> and may contain errors. They are a convenience, not a verbatim legal record, and should be reviewed before being relied on.</li>
+        <li><strong>Third-party costs are yours:</strong> hosting / VPS for Phase 1, and the dialer / call-recording service and WhatsApp number for Phase 1.5, are billed directly to DecentraLabs, not included in the build price. We confirm the exact costs before any integration proceeds.</li>
+        <li><strong>Call transcripts (Phase 1.5) are AI-generated</strong> and may contain errors. They are a convenience, not a verbatim legal record, and should be reviewed before being relied on.</li>
       </ul>
     </section>
 
@@ -653,14 +668,20 @@
     <!-- 11. FEES -->
     <section>
       <div class="sec-head"><span class="sec-num">11</span><h2>Investment</h2></div>
-      <p>Phase 1 is the minimum build to get a working sales CRM with the integrations
-      live. Phases 2 and 3 are quoted separately once their scope is agreed.</p>
+      <p>Phase 1 is the minimum build to get a working sales CRM live. The calling and
+      messaging layer (Phase 1.5) and the later phases are quoted separately once their
+      scope is agreed.</p>
 
       <div class="pricebar">
         <div class="pricecard feature">
           <div class="pc-eye">Phase 1 · Sales CRM</div>
           <div class="pc-amt">$1,200</div>
           <div class="pc-sub">Everything in Section 04, delivered in 4 working days.</div>
+        </div>
+        <div class="pricecard">
+          <div class="pc-eye">Phase 1.5 · Calls &amp; messaging</div>
+          <div class="pc-amt">TBD</div>
+          <div class="pc-sub">Dialer (VOIP / IVR), recording, transcripts and WhatsApp. Budget decided once the tooling is confirmed.</div>
         </div>
         <div class="pricecard">
           <div class="pc-eye">Phases 2 &amp; 3 · later</div>
@@ -681,9 +702,10 @@
 
       <div class="note">
         A $200 advance on signing locks the 4-day build slot and starts the clock; the
-        remaining $1,000 is due on the delivery day, on acceptance of Phase 1. Phases 2
-        and 3 total $1,300 and are scoped, split and scheduled separately once we define
-        them together. Fees are exclusive of any applicable taxes and third-party tool costs.
+        remaining $1,000 is due on the delivery day, on acceptance of Phase 1. Phase 1.5
+        (calls and messaging) and Phases 2 and 3 (the $1,300 ops, AI and marketing layers)
+        are scoped, priced and scheduled separately once we define them together. Fees are
+        exclusive of any applicable taxes and third-party tool costs.
       </div>
     </section>
 
